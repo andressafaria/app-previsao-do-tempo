@@ -4,22 +4,28 @@ import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import br.edu.univas.previsaotempo.view.MyPageAdapter;
+import br.edu.univas.previsaotempo.controller.CityController;
+import br.edu.univas.previsaotempo.model.City;
 import br.edu.univas.previsaotempo.view.PageViewActivity;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+
+    private CityController cityController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        cityController = new CityController(this);
         configureButtons();
     }
 
@@ -63,17 +69,48 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     private void configureButtons () {
+        configureButtonAddCity();
+        configureButtonGoToWeather();
+    }
 
-        Button bt = (Button) findViewById(R.id.bt);
+    private void configureButtonAddCity() {
+        Button bt = (Button) findViewById(R.id.btAddCity);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToPageAdapter();
+                addCity();
             }
         });
     }
 
-    private void goToPageAdapter() {
+    private void addCity() {
+        EditText cityText = (EditText) findViewById(R.id.add_city_home);
+        City city = new City();
+        city.setName(cityText.getText().toString());
+        cityController.saveCity(city);
+        cityText.setText(null, null);
+        showToast("Successo ao cadastrar nova cidade!");
+    }
+
+    private void showToast(CharSequence message) {
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(this, message, duration);
+        toast.show();
+    }
+
+
+    private void configureButtonGoToWeather() {
+        Button bt = (Button) findViewById(R.id.btGoToWeather);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToWeather();
+            }
+        });
+    }
+
+    private void goToWeather() {
         Intent intent = new Intent(this, PageViewActivity.class);
         startActivity(intent);
 

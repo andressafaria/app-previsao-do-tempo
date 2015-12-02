@@ -25,9 +25,18 @@ public class CityService {
         return cityRepository.findAllAsCursor();
     }
 
-    public void saveAgency(City city) {
+    public void saveCity(City city) {
         Log.d(TAG, "Saving the register in DAO");
+        if (!isCityAvailable(city)) {
+            //TODO: throw an exception
+        }
         cityRepository.save(city);
         Log.i(TAG, "Successfully to save city");
+    }
+
+    private boolean isCityAvailable(City city) {
+        //TODO: implementar a lógica para chamar o webservice.
+        //city.setId(Codigo_cidade_web_service);
+        return true;
     }
 }

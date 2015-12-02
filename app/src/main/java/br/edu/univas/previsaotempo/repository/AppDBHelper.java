@@ -23,7 +23,7 @@ public class AppDBHelper extends SQLiteOpenHelper {
         Log.d(TAG, "Creating the table TASK.");
         String CREATE_USER_TABLE =
                 "CREATE TABLE " + AppContractDAO.CITY_TABLE + " ("
-                        + AppContractDAO.Column.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + AppContractDAO.Column.ID + " INTEGER PRIMARY KEY, "
                         + AppContractDAO.Column.NAME + " TEXT NOT NULL "
                         + " )";
 

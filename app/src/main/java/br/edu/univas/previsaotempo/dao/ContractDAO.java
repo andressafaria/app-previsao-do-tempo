@@ -6,5 +6,5 @@ package br.edu.univas.previsaotempo.dao;
 public abstract class ContractDAO {
 
     public static final String DB_NAME = "app.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 }

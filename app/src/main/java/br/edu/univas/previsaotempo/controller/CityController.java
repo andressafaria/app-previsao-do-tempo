@@ -27,6 +27,6 @@ public class CityController {
 
     public void saveCity(City city) {
         Log.d(TAG, "Saving the register: " + city.toString());
-        cityService.saveAgency(city);
+        cityService.saveCity(city);
     }
 }

@@ -12,6 +12,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
+
 /**
  * Created by Aluno0207 on 27/10/2015.
  */
@@ -38,7 +39,7 @@ public class WebHelper {
         HttpURLConnection conn = null;
         try {
 
-            URL url = new URL(URL_BASE + "?q=" + city + "&" + APPID);
+            URL url = new URL(URL_BASE + "?q=" + URLEncoder.encode(city, "UTF-8") + "&" + APPID);
             Log.i(TAG, URL_BASE + "?q=" + URLEncoder.encode(city, "UTF-8") + "&" + APPID);
             conn = (HttpURLConnection) url.openConnection();
             Log.i(TAG, "Opened connection");

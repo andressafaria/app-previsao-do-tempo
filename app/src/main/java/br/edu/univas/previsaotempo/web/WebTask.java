@@ -16,11 +16,11 @@ public class WebTask extends AsyncTask<Integer, Integer, String> {
 
     private static final String TAG = WebTask.class.getSimpleName();
     private Context context;
-    private TextView widgetTexto;
+    private String city;
 
-    public WebTask(Context ctx, TextView text) {
+    public WebTask(Context ctx, String city) {
         this.context = ctx;
-        this.widgetTexto = text;
+        this.city = city;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class WebTask extends AsyncTask<Integer, Integer, String> {
         Log.d(TAG, "Início de doInBackground: " + params);
 
         WebHelper helper = new WebHelper(context);
-        String content = helper.getCEPContent();
+        String content = helper.getCityContent(city);
 
         Log.d(TAG, "Fim de doInBackground: " + content);
         return content;
@@ -46,7 +46,7 @@ public class WebTask extends AsyncTask<Integer, Integer, String> {
             Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
-            widgetTexto.setText(result);
+            Log.i(TAG, "RESULT: " + result);
         }
     }
 }

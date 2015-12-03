@@ -15,6 +15,7 @@ import android.widget.Toast;
 import br.edu.univas.previsaotempo.controller.CityController;
 import br.edu.univas.previsaotempo.model.City;
 import br.edu.univas.previsaotempo.view.PageViewActivity;
+import br.edu.univas.previsaotempo.web.WebTask;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -87,8 +88,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         EditText cityText = (EditText) findViewById(R.id.add_city_home);
         City city = new City();
         city.setName(cityText.getText().toString());
-        cityController.saveCity(city);
-        cityText.setText(null, null);
+        //cityController.saveCity(city);
+        //cityText.setText(null, null);
+        WebTask task = new WebTask(getApplicationContext(), city.getName());
+        task.execute();
         showToast("Successo ao cadastrar nova cidade!");
     }
 

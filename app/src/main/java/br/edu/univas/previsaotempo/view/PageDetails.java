@@ -1,5 +1,6 @@
-package br.edu.univas.previsaotempo.web;
+package br.edu.univas.previsaotempo.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -7,11 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import br.edu.univas.previsaotempo.MainActivity;
 import br.edu.univas.previsaotempo.R;
 import br.edu.univas.previsaotempo.controller.CityController;
 import br.edu.univas.previsaotempo.model.City;
+import br.edu.univas.previsaotempo.web.WebTaskWeather;
+import br.edu.univas.previsaotempo.web.WebTaskWeatherDetails;
 
 /**
  * Created by Andressa Faria on 04/12/2015.
@@ -28,15 +32,34 @@ public class PageDetails extends AppCompatActivity {
         setContentView(R.layout.activity_page_details);
 
         cityController = new CityController(this);
+        Intent intent = getIntent();
+        cidade = intent.getStringExtra("CITY");
 
-        configureComponents();
 
-    }
-
-    private void configureComponents() {
-        configureviewDetail(cidade);
         configureVoltar();
+
+        getWeatherDetails();
+
     }
+
+    private void getWeatherDetails() {
+
+        TextView temperatura = (TextView) findViewById(R.id.temperatura_detail);
+        TextView minDetail = (TextView) findViewById(R.id.minima_detail);
+        TextView maxDetail = (TextView) findViewById(R.id.maxima_detail);
+        TextView humidadeDetail = (TextView) findViewById(R.id.humidade_detail);
+        TextView marDetail = (TextView) findViewById(R.id.nivel_mar_detail);
+        TextView velocidadeDetail = (TextView) findViewById(R.id.velocidade_detail);
+        TextView cidadeDetail = (TextView) findViewById(R.id.cidade_detail);
+
+        cidadeDetail.setText(cidade);
+
+        WebTaskWeatherDetails task = new WebTaskWeatherDetails(this, cidade, temperatura, minDetail,
+                maxDetail, humidadeDetail, marDetail, velocidadeDetail);
+        task.execute();
+
+    }
+
 
     private void configureVoltar() {
         Log.d(TAG, "Configuring the cancel button");
@@ -51,40 +74,6 @@ public class PageDetails extends AppCompatActivity {
         });
 
         Log.i(TAG, "Successfully to configure cancel button");
-    }
-
-    private void configureviewDetail(String cidade) {
-
-        Log.d(TAG, "Configuring the save button");
-
-        Button btViewDetail = (Button) findViewById(R.id.viewDetail);
-        btViewDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewDetail();
-            }
-        });
-
-        Log.i(TAG, "Successfully to configure save button");
-    }
-
-    private void viewDetail() {
-        Log.d(TAG, "entrou para ver detalhes da cidade");
-
-        EditText verDetail = (EditText) findViewById(R.id.edit_add_city);
-        City city = buildCity(verDetail);
-
-       // cityController.saveCity(city);
-        //finish();
-
-        Log.i(TAG, "Detalhes disponibilizados .");
-    }
-
-    @NonNull
-    private City buildCity(EditText editcity){
-        City city = new City();
-        city.setName(editcity.getText().toString());
-        return city;
     }
 
 }

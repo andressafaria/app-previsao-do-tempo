@@ -34,11 +34,6 @@ public class WebTaskWeather extends AsyncTask<Integer, Integer, String> {
         WebHelper helper = new WebHelper(context);
         String content = helper.getCityContent(city);
 
-//
-//        List<WeatherPrevision> previsions = new ArrayList<WeatherPrevision>();
-//        previsions.add(weatherPrevision);
-//        PersistWeatherPrevision.getInstance().setPrevisions(previsions);
-
         Log.d(TAG, "Fim de doInBackground: " + content);
         return content;
     }

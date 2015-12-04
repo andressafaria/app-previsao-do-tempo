@@ -9,6 +9,7 @@
     <string name="title_activity_page_view">PageViewActivity</string>
     <string name="title_activity_my_fragment">MyFragment</string>
     <string name="title_activity_add_city">Adicionar</string>
+    <string name="title_activity_details">Detalhes</string>
 
     <!-- Home - Main Activity -->
     <string name="button_new_city">Nova Cidade</string>

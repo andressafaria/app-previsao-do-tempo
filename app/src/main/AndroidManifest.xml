@@ -27,6 +27,10 @@
             android:name=".view.MyFragment"
             android:label="@string/title_activity_my_fragment" >
         </activity>
+        <activity
+            android:name=".AddNewCity"
+            android:label="@string/title_activity_add_city" >
+        </activity>
     </application>
 
 </manifest>

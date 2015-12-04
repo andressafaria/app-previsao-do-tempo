@@ -8,9 +8,17 @@
 
     <string name="title_activity_page_view">PageViewActivity</string>
     <string name="title_activity_my_fragment">MyFragment</string>
+    <string name="title_activity_add_city">Adicionar</string>
 
     <!-- Home - Main Activity -->
+    <string name="button_new_city">Nova Cidade</string>
+    <string name="button_home_go_to_weather">Previsões</string>
+    <string name="lbl_home_list_city">Lista de Cidades</string>
+    <string name="txt_city_list">Cidade:</string>
+
+
+    <!-- Adicionar cidade -->
+    <string name="bt_cancel_city">Cancelar</string>
     <string name="lbl_home_city">Cidade</string>
     <string name="button_home_save">Salvar</string>
-    <string name="button_home_go_to_weather">Previsões</string>
 </resources>

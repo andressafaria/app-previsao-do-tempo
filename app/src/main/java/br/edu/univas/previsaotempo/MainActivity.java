@@ -149,7 +149,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 
     private void configureButtonGoToWeather() {
-        Button bt = (Button) findViewById(R.id.btGoToWeather);
+        Button bt = (Button) findViewById(R.id.btVoltar);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -34,7 +34,7 @@ public class MyFragment extends Fragment {
         TextView messageTextView = (TextView)v.findViewById(R.id.textView);
         messageTextView.setText(message);
 
-        TextView cidade = (TextView) v.findViewById(R.id.cidade);
+        TextView cidade = (TextView) v.findViewById(R.id.cidade_detail);
         TextView temperatura = (TextView) v.findViewById(R.id.temperatura);
 
         WebTaskWeather task = new WebTaskWeather(this.getContext(), message, cidade, temperatura);

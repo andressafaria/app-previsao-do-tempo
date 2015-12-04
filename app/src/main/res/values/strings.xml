@@ -24,4 +24,8 @@
     <color name="color_button">#0000FF</color>
 
     <color name="text_button">#FFFFFF</color>
+
+    <!-- Detalhes-->
+    <string name="viewDetail">Detalhes</string>
+    <string name="btVoltar">Voltar</string>
 </resources>

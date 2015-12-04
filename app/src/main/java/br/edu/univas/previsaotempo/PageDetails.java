@@ -1,4 +1,4 @@
-package br.edu.univas.previsaotempo.web;
+package br.edu.univas.previsaotempo;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

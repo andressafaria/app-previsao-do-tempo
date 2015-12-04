@@ -16,7 +16,7 @@ public class MyFragment extends Fragment {
 
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
     private String city;
-
+    private TextView cidade;
 
     public static final MyFragment newInstance(String message) {
 
@@ -36,14 +36,14 @@ public class MyFragment extends Fragment {
 //        TextView messageTextView = (TextView)v.findViewById(R.id.textView);
 //        messageTextView.setText(message);
 
-        viewDetailConfigure(v);
 
-        TextView cidade = (TextView) v.findViewById(R.id.cidade_detail);
+        cidade = (TextView) v.findViewById(R.id.cidade_fragment);
         TextView temperatura = (TextView) v.findViewById(R.id.temperatura);
 
-        city = cidade.getText().toString();
         WebTaskWeather task = new WebTaskWeather(this.getContext(), message, cidade, temperatura);
         task.execute();
+
+        viewDetailConfigure(v);
         return v;
 
     }
@@ -62,7 +62,7 @@ public class MyFragment extends Fragment {
     private void goToDetail() {
 
         Intent intent = new Intent(this.getContext(), PageDetails.class);
-        intent.putExtra("CITY", city);
+        intent.putExtra("CITY", cidade.getText().toString());
         startActivity(intent);
     }
 

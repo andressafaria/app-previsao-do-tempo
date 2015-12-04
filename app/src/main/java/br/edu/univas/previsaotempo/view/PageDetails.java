@@ -2,19 +2,14 @@ package br.edu.univas.previsaotempo.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import br.edu.univas.previsaotempo.MainActivity;
 import br.edu.univas.previsaotempo.R;
-import br.edu.univas.previsaotempo.controller.CityController;
-import br.edu.univas.previsaotempo.model.City;
-import br.edu.univas.previsaotempo.web.WebTaskWeather;
 import br.edu.univas.previsaotempo.web.WebTaskWeatherDetails;
 
 /**
@@ -23,7 +18,6 @@ import br.edu.univas.previsaotempo.web.WebTaskWeatherDetails;
 public class PageDetails extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private CityController cityController;
     private String cidade;
 
     @Override
@@ -31,10 +25,8 @@ public class PageDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_details);
 
-        cityController = new CityController(this);
         Intent intent = getIntent();
         cidade = intent.getStringExtra("CITY");
-
 
         configureVoltar();
 

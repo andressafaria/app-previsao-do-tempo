@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">PrevisaoTempo</string>
 
     <string name="hello_world">Hello world!</string>
@@ -13,12 +13,15 @@
     <!-- Home - Main Activity -->
     <string name="button_new_city">Nova Cidade</string>
     <string name="button_home_go_to_weather">Previsões</string>
-    <string name="lbl_home_list_city">Lista de Cidades</string>
+    <string name="lbl_home_list_city">Lista de Cidades:</string>
     <string name="txt_city_list">Cidade:</string>
-
 
     <!-- Adicionar cidade -->
     <string name="bt_cancel_city">Cancelar</string>
     <string name="lbl_home_city">Cidade</string>
     <string name="button_home_save">Salvar</string>
+
+    <color name="color_button">#0000FF</color>
+
+    <color name="text_button">#FFFFFF</color>
 </resources>

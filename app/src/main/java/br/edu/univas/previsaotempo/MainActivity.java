@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,6 +42,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         Log.d(TAG, "Configuring the list of items");
 
         ListView listView = (ListView) findViewById(R.id.list_cities);
+
         Cursor cursor = cityController.findAll();
         String [] from = new String [] {
                 AppContractDAO.Column.NAME,
@@ -137,7 +139,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         //cityText.setText(null, null);
         //WebTaskWeather task = new WebTaskWeather(getApplicationContext(), city.getName());
         //task.execute();
-        showToast("Successo ao cadastrar nova cidade!");
+        //showToast("Successo ao cadastrar nova cidade!");
     }
 
     private void showToast(CharSequence message) {

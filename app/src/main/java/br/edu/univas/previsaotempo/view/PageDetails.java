@@ -40,7 +40,7 @@ public class PageDetails extends AppCompatActivity {
         TextView minDetail = (TextView) findViewById(R.id.minima_detail);
         TextView maxDetail = (TextView) findViewById(R.id.maxima_detail);
         TextView humidadeDetail = (TextView) findViewById(R.id.humidade_detail);
-        TextView marDetail = (TextView) findViewById(R.id.nivel_mar_detail);
+        TextView marDetail = (TextView) findViewById(R.id.mar_detail);
         TextView velocidadeDetail = (TextView) findViewById(R.id.velocidade_detail);
         TextView cidadeDetail = (TextView) findViewById(R.id.cidade_detail);
 

@@ -65,9 +65,9 @@ public class WebTaskWeatherDetails extends AsyncTask<Integer, Integer, String> {
     protected void onPostExecute(String result) {
         Log.d(TAG, "Valores de onPostExecute: " + result);
         if(result == null) {
-            Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
             WeatherPrevision weatherPrevision = ConvertJSONToWeatherPrevision.convert(result);
 
             temperatura.setText(String.valueOf(weatherPrevision.getTemperatura()));

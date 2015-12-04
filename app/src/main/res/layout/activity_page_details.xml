@@ -23,22 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Detalhes: "
-        android:id="@+id/textView2"
-        android:lineSpacingExtra="25dp"
-        android:layout_below="@+id/btVoltar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/cidade_detail"
-        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/btVoltar"
+        android:layout_alignRight="@+id/minima_detail"
+        android:layout_alignEnd="@+id/minima_detail" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,7 +37,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Temperatura: "
         android:id="@+id/textView4"
-        android:layout_below="@+id/cidade_fragment"
+        android:layout_below="@+id/btVoltar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -56,7 +47,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Mínima: "
         android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/cidade_detail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -68,7 +59,8 @@
         android:id="@+id/textView6"
         android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,6 +68,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Humidade:"
         android:id="@+id/textView7"
+        android:layout_marginTop="62dp"
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -86,9 +79,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nível do Mar: "
         android:id="@+id/textView8"
-        android:layout_below="@+id/textView7"
+        android:layout_below="@+id/textView9"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,65 +90,70 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Velocidade do Ar:"
         android:id="@+id/textView9"
-        android:layout_below="@+id/textView8"
+        android:layout_below="@+id/textView7"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/temperatura_detail"
-        android:layout_below="@+id/cidade_fragment"
-        android:layout_alignLeft="@+id/minima_detail"
-        android:layout_alignStart="@+id/minima_detail" />
+        android:layout_below="@+id/btVoltar"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_toRightOf="@+id/textView9"
+        android:layout_toStartOf="@+id/btVoltar"
+        android:layout_toLeftOf="@+id/btVoltar" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/minima_detail"
-        android:layout_below="@+id/temperatura_detail"
-        android:layout_alignLeft="@+id/maxima_detail"
-        android:layout_alignStart="@+id/maxima_detail" />
+        android:layout_below="@+id/cidade_detail"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_alignRight="@+id/maxima_detail"
+        android:layout_alignEnd="@+id/maxima_detail" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/maxima_detail"
         android:layout_alignTop="@+id/textView6"
-        android:layout_alignLeft="@+id/humidade_detail"
-        android:layout_alignStart="@+id/humidade_detail" />
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_above="@+id/textView7"
+        android:layout_alignRight="@+id/humidade_detail"
+        android:layout_alignEnd="@+id/humidade_detail" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/humidade_detail"
         android:layout_alignTop="@+id/textView7"
-        android:layout_alignLeft="@+id/nivel_mar_detail"
-        android:layout_alignStart="@+id/nivel_mar_detail" />
+        android:layout_above="@+id/textView9"
+        android:layout_toLeftOf="@+id/btVoltar"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/nivel_mar_detail"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView9"
-        android:layout_toEndOf="@+id/textView9"
-        android:layout_marginLeft="49dp"
-        android:layout_marginStart="49dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/velocidade_detail"
-        android:layout_below="@+id/nivel_mar_detail"
-        android:layout_alignLeft="@+id/nivel_mar_detail"
-        android:layout_alignStart="@+id/nivel_mar_detail" />
+        android:layout_alignTop="@+id/textView9"
+        android:layout_toRightOf="@+id/textView9"
+        android:layout_above="@+id/textView8"
+        android:layout_alignRight="@+id/humidade_detail"
+        android:layout_alignEnd="@+id/humidade_detail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mar_detail"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_alignLeft="@+id/humidade_detail"
+        android:layout_alignStart="@+id/humidade_detail"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignRight="@+id/velocidade_detail"
+        android:layout_alignEnd="@+id/velocidade_detail" />
 
 
 </RelativeLayout>

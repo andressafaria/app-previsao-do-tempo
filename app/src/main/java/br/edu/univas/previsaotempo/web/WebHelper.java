@@ -42,10 +42,9 @@ public class WebHelper {
             URL url = new URL(URL_BASE + "?q=" + URLEncoder.encode(city, "UTF-8") + "&" + APPID);
             Log.i(TAG, URL_BASE + "?q=" + URLEncoder.encode(city, "UTF-8") + "&" + APPID);
             conn = (HttpURLConnection) url.openConnection();
-            Log.i(TAG, "Opened connection");
             InputStream input = conn.getInputStream();
-            Log.d(TAG, "INPUT: " + input);
             response = readContent(conn.getInputStream());
+            //response = "{\"coord\":{\"lon\":-45.94,\"lat\":-22.23},\"weather\":[{\"id\":501,\"main\":\"Rain\",\"description\":\"moderate rain\",\"icon\":\"10n\"}],\"base\":\"cmc stations\",\"main\":{\"temp\":290.209,\"pressure\":909.86,\"humidity\":99,\"temp_min\":290.209,\"temp_max\":290.209,\"sea_level\":1026.61,\"grnd_level\":909.86},\"wind\":{\"speed\":1.46,\"deg\":110.001},\"rain\":{\"3h\":4.5375},\"clouds\":{\"all\":88},\"dt\":1449185693,\"sys\":{\"message\":0.0067,\"country\":\"BR\",\"sunrise\":1449130285,\"sunset\":1449178590},\"id\":3452525,\"name\":\"Pouso Alegre\",\"cod\":200}";
             Log.i(TAG, "RESPONSE: " + response);
         } catch(IOException e) {
             if(conn != null) {

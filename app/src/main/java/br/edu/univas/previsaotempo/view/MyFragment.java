@@ -1,16 +1,14 @@
 package br.edu.univas.previsaotempo.view;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import br.edu.univas.previsaotempo.R;
+import br.edu.univas.previsaotempo.web.WebTaskWeather;
 
 public class MyFragment extends Fragment {
 
@@ -25,6 +23,8 @@ public class MyFragment extends Fragment {
         return f;
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,6 +33,12 @@ public class MyFragment extends Fragment {
         View v = inflater.inflate(R.layout.activity_my_fragment, container, false);
         TextView messageTextView = (TextView)v.findViewById(R.id.textView);
         messageTextView.setText(message);
+
+        TextView cidade = (TextView) v.findViewById(R.id.cidade);
+        TextView temperatura = (TextView) v.findViewById(R.id.temperatura);
+
+        WebTaskWeather task = new WebTaskWeather(this.getContext(), message, cidade, temperatura);
+        task.execute();
         return v;
 
     }

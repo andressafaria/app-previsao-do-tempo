@@ -6,21 +6,25 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import br.edu.univas.previsaotempo.model.WeatherPrevision;
+import br.edu.univas.previsaotempo.util.ConvertJSONToWeatherPrevision;
+
 /**
  * Created by Aluno0207 on 03/11/2015.
  */
-public class WebTask extends AsyncTask<Integer, Integer, String> {
-    //entrada: CEP
-    //passo: número qualquer
-    //saída: o conteúdo do json
+public class WebTaskWeather extends AsyncTask<Integer, Integer, String> {
 
-    private static final String TAG = WebTask.class.getSimpleName();
+    private static final String TAG = WebTaskWeather.class.getSimpleName();
     private Context context;
     private String city;
+    private TextView cidade;
+    private TextView temperatura;
 
-    public WebTask(Context ctx, String city) {
+    public WebTaskWeather(Context ctx, String city, TextView cidade, TextView temperatura) {
         this.context = ctx;
         this.city = city;
+        this.cidade = cidade;
+        this.temperatura = temperatura;
     }
 
     @Override
@@ -29,6 +33,11 @@ public class WebTask extends AsyncTask<Integer, Integer, String> {
 
         WebHelper helper = new WebHelper(context);
         String content = helper.getCityContent(city);
+
+//
+//        List<WeatherPrevision> previsions = new ArrayList<WeatherPrevision>();
+//        previsions.add(weatherPrevision);
+//        PersistWeatherPrevision.getInstance().setPrevisions(previsions);
 
         Log.d(TAG, "Fim de doInBackground: " + content);
         return content;
@@ -46,6 +55,10 @@ public class WebTask extends AsyncTask<Integer, Integer, String> {
             Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
+            WeatherPrevision weatherPrevision = ConvertJSONToWeatherPrevision.convert(result);
+
+            cidade.setText(weatherPrevision.getCidade().toString());
+            temperatura.setText(String.valueOf(weatherPrevision.getTemperatura()));
             Log.i(TAG, "RESULT: " + result);
         }
     }

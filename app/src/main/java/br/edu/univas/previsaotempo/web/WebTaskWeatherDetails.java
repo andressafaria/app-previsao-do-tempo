@@ -6,6 +6,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import br.edu.univas.previsaotempo.R;
 import br.edu.univas.previsaotempo.model.WeatherPrevision;
 import br.edu.univas.previsaotempo.util.ConvertJSONToWeatherPrevision;
 
@@ -17,16 +20,29 @@ public class WebTaskWeatherDetails extends AsyncTask<Integer, Integer, String> {
     private static final String TAG = WebTaskWeatherDetails.class.getSimpleName();
     private Context context;
     private String city;
-    private TextView cidade;
     private TextView temperatura;
-    //TODO: INCLUIR OS DEMAIS CAMPOS DA TELA DE DETAIL
+    private TextView minDetail;
+    private TextView maxDetail;
+    private TextView humidadeDetail;
+    private TextView marDetail;
+    private TextView velocidadeDetail;
 
-    public WebTaskWeatherDetails(Context ctx, String city, TextView cidade, TextView temperatura) {
-        this.context = ctx;
+    public WebTaskWeatherDetails(Context context,
+                                 String city,
+                                 TextView temperatura,
+                                 TextView minDetail,
+                                 TextView maxDetail,
+                                 TextView humidadeDetail,
+                                 TextView marDetail,
+                                 TextView velocidadeDetail) {
+        this.context = context;
         this.city = city;
-        this.cidade = cidade;
         this.temperatura = temperatura;
-        //INCLUIR OS DEMAIS CAMPOS DA TELA DE DETAIL
+        this.minDetail = minDetail;
+        this.maxDetail = maxDetail;
+        this.humidadeDetail = humidadeDetail;
+        this.marDetail = marDetail;
+        this.velocidadeDetail = velocidadeDetail;
     }
 
     @Override
@@ -49,15 +65,18 @@ public class WebTaskWeatherDetails extends AsyncTask<Integer, Integer, String> {
     protected void onPostExecute(String result) {
         Log.d(TAG, "Valores de onPostExecute: " + result);
         if(result == null) {
-            Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
             WeatherPrevision weatherPrevision = ConvertJSONToWeatherPrevision.convert(result);
 
-            //TODO: PEGAR TODOS OS CAMPOS DA TELA E SETAR SEUS VALORES AQUI. ESTES CAMPOS SÃO PASSADOS COMO
-            //PARÂMETROS PARA ESTA CLASSE EM SEU CONSTRUTOR
-            cidade.setText(weatherPrevision.getCidade().toString());
             temperatura.setText(String.valueOf(weatherPrevision.getTemperatura()));
+            minDetail.setText(String.valueOf(weatherPrevision.getTemperaturaMinima()));
+            maxDetail.setText(String.valueOf(weatherPrevision.getTemperaturaMaxima()));
+            humidadeDetail.setText(String.valueOf(weatherPrevision.getHumidade()));
+            marDetail.setText(String.valueOf(weatherPrevision.getNivelMar()));
+            velocidadeDetail.setText(String.valueOf(weatherPrevision.getVelocidadeAr()));
+
             Log.i(TAG, "RESULT: " + result);
         }
     }

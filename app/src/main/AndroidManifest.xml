@@ -31,6 +31,10 @@
             android:name=".AddNewCity"
             android:label="@string/title_activity_add_city" >
         </activity>
+        <activity
+            android:name=".view.PageDetails"
+            android:label="@string/title_activity_details" >
+        </activity>
     </application>
 
 </manifest>

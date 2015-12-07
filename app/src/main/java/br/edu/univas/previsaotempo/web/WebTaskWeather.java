@@ -34,11 +34,6 @@ public class WebTaskWeather extends AsyncTask<Integer, Integer, String> {
         WebHelper helper = new WebHelper(context);
         String content = helper.getCityContent(city);
 
-//
-//        List<WeatherPrevision> previsions = new ArrayList<WeatherPrevision>();
-//        previsions.add(weatherPrevision);
-//        PersistWeatherPrevision.getInstance().setPrevisions(previsions);
-
         Log.d(TAG, "Fim de doInBackground: " + content);
         return content;
     }
@@ -52,9 +47,9 @@ public class WebTaskWeather extends AsyncTask<Integer, Integer, String> {
     protected void onPostExecute(String result) {
         Log.d(TAG, "Valores de onPostExecute: " + result);
         if(result == null) {
-            Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Lique sua internet.", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Conteúdo atualizado.", Toast.LENGTH_SHORT).show();
             WeatherPrevision weatherPrevision = ConvertJSONToWeatherPrevision.convert(result);
 
             cidade.setText(weatherPrevision.getCidade().toString());
